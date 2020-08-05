@@ -10,6 +10,7 @@ require (
 	github.com/aws/aws-lambda-go v1.13.3
 	github.com/aws/aws-sdk-go v1.27.0
 	github.com/aws/aws-sdk-go-v2 v0.18.0
+	github.com/bilibili/discovery v0.0.0-00010101000000-000000000000
 	github.com/casbin/casbin/v2 v2.1.2
 	github.com/cenkalti/backoff v2.2.1+incompatible // indirect
 	github.com/clbanning/x2j v0.0.0-20191024224557-825249438eec // indirect
@@ -21,7 +22,7 @@ require (
 	github.com/franela/goreq v0.0.0-20171204163338-bcd34c9993f8 // indirect
 	github.com/go-logfmt/logfmt v0.5.0
 	github.com/go-stack/stack v1.8.0
-	github.com/golang/protobuf v1.3.2
+	github.com/golang/protobuf v1.4.2
 	github.com/gorilla/mux v1.7.3
 	github.com/hashicorp/consul/api v1.3.0
 	github.com/hashicorp/go-version v1.2.0 // indirect
@@ -48,14 +49,16 @@ require (
 	github.com/sony/gobreaker v0.4.1
 	github.com/streadway/amqp v0.0.0-20190827072141-edfb9018d271
 	github.com/streadway/handy v0.0.0-20190108123426-d5acb3125c2a
-	go.etcd.io/etcd v0.0.0-20191023171146-3cf2f69b5738
 	go.opencensus.io v0.22.2
-	go.uber.org/zap v1.13.0
+	go.uber.org/zap v1.14.1
 	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e
 	golang.org/x/time v0.0.0-20191024005414-555d28b269f0
 	golang.org/x/tools v0.0.0-20200103221440-774c71fcf114
-	google.golang.org/grpc v1.26.0
+	google.golang.org/genproto v0.0.0-20200624020401-64a14ca9d1ad // indirect
+	google.golang.org/grpc v1.30.0
 	gopkg.in/gcfg.v1 v1.2.3 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	sourcegraph.com/sourcegraph/appdash v0.0.0-20190731080439-ebfcffb1b5c0
 )
+
+replace github.com/bilibili/discovery => github.com/clouderwork/discovery master
