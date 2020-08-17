@@ -88,10 +88,10 @@ func (c *client) GetEntries() ([]string, error) {
 		entries = make([]string, 0, len(ins))
 
 		for _, in := range ins {
-			for _, addrs := range in.Addrs {
-				u, err := url.Parse(addrs)
+			for _, addr := range in.Addrs {
+				u, err := url.Parse(addr)
 				if err == nil && u.Scheme == "grpc" {
-					entries = append(entries, u.Host)
+					entries = append(entries, addr)
 				}
 			}
 		}
@@ -125,8 +125,7 @@ func (c *client) Register(s Service) error {
 		Hostname: host,
 		AppID:    appID,
 		Addrs: []string{
-			// "grpc://" + addr + ":" + port,
-			addr,
+			"grpc://" + addr,
 		},
 		Metadata: map[string]string{
 			naming.MetaWeight: strconv.Itoa(c.weight),
