@@ -11,17 +11,17 @@ import (
 type Instancer struct {
 	cache  *instance.Cache
 	client Client
-	prefix string
+	appid  string
 	logger log.Logger
 	quitc  chan struct{}
 }
 
 // NewInstancer returns an etcd instancer. It will start watching the given
-// prefix for changes, and update the subscribers.
-func NewInstancer(c Client, prefix string, logger log.Logger) (*Instancer, error) {
+// appid for changes, and update the subscribers.
+func NewInstancer(c Client, appid string, logger log.Logger) (*Instancer, error) {
 	s := &Instancer{
 		client: c,
-		prefix: prefix,
+		appid:  appid,
 		cache:  instance.NewCache(),
 		logger: logger,
 		quitc:  make(chan struct{}),
@@ -32,7 +32,7 @@ func NewInstancer(c Client, prefix string, logger log.Logger) (*Instancer, error
 
 func (s *Instancer) loop() {
 	ch := make(chan struct{})
-	go s.client.WatchPrefix(s.prefix, ch)
+	go s.client.WatchPrefix(s.appid, ch)
 
 	for {
 		select {
