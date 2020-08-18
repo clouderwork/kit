@@ -91,7 +91,7 @@ func (c *client) GetEntries() ([]string, error) {
 			for _, addr := range in.Addrs {
 				u, err := url.Parse(addr)
 				if err == nil && u.Scheme == "grpc" {
-					entries = append(entries, addr)
+					entries = append(entries, u.Host)
 				}
 			}
 		}
